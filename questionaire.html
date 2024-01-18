@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .question-container {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        // Add your JavaScript code here for interactivity
+        function showScore() {
+            // You can implement logic to calculate and display the tree equity score
+            var score = prompt("Enter the tree equity score for the area:");
+            alert("Did you know the tree equity score of this area is " + score + "? Let’s see what this means...");
+        }
+
+        function handleGroceryStoreResponse(response) {
+            if (response === 'Yes') {
+                alert("Great! Here’s more ways to incorporate food equity in your project");
+            } else {
+                alert("Let's discuss why access to fresh food is a matter of equity...");
+                // Add more ways to promote equity in case access to a grocery store isn't possible
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="question-container">
+        <p>1. Where is your project located?</p>
+        <label for="projectLocation">a. Open text box</label>
+        <input type="text" id="projectLocation" placeholder="Elk Grove, California">
+        <button onclick="showScore()">i. Did you know the tree equity score of this area is __?__ Let’s see what this means…</button>
+    </div>
+
+    <div class="question-container">
+        <p>2. Is there access in close proximity (15 minutes walking distance) to a grocery store?</p>
+        <label><input type="radio" name="groceryAccess" value="Don't know"> b. I don’t know</label>
+        <label><input type="radio" name="groceryAccess" value="Yes" onclick="handleGroceryStoreResponse('Yes')"> c. Yes</label>
+        <label><input type="radio" name="groceryAccess" value="No" onclick="handleGroceryStoreResponse('No')"> d. No</label>
+    </div>
+
+</body>
+</html>
