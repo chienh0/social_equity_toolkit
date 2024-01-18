@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Add your CSS styling here */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -15,9 +14,7 @@
         }
     </style>
     <script>
-        // Add your JavaScript code here for interactivity
-        function showScore() {
-            // You can implement logic to calculate and display the tree equity score
+        function showTreeEquityScore() {
             var score = prompt("Enter the tree equity score for the area:");
             alert("Did you know the tree equity score of this area is " + score + "? Let’s see what this means...");
         }
@@ -27,7 +24,33 @@
                 alert("Great! Here’s more ways to incorporate food equity in your project");
             } else {
                 alert("Let's discuss why access to fresh food is a matter of equity...");
-                // Add more ways to promote equity in case access to a grocery store isn't possible
+                // Add more ways to promote access to fresh food
+            }
+        }
+
+        function handleCommunityEventsResponse(response) {
+            if (response === 'Yes') {
+                alert("Great! Here’s some more ideas on activities to incorporate into your community outreach...");
+            } else if (response === 'Not yet') {
+                alert("Got it! Here are some ideas for activities to incorporate into your community outreach...");
+            } else {
+                alert("Okay, let's discuss why community events are important to the success of a project...");
+            }
+        }
+
+        function handleDemographicsResponse(response) {
+            if (response === 'Yes') {
+                alert("Great! Let's talk about how to use that information when creating community outreach events... here are links to translation apps you can use in creating your outreach material...");
+            } else {
+                alert("That’s okay! Let's discuss why knowing the demographics of the area is important… here are links to the US Census to help get you started on understanding the demographics of the area.");
+            }
+        }
+
+        function handleLanguagesResponse(response) {
+            if (response === 'Yes') {
+                alert("Awesome! Here’s ways to ensure your outreach is reaching everyone, regardless of language spoken...");
+            } else {
+                alert("That’s okay! Here is why it's important to know this… and here are ways to learn what languages are spoken in the area your project will be...");
             }
         }
     </script>
@@ -38,14 +61,33 @@
         <p>1. Where is your project located?</p>
         <label for="projectLocation">a. Open text box</label>
         <input type="text" id="projectLocation" placeholder="Elk Grove, California">
-        <button onclick="showScore()">i. Did you know the tree equity score of this area is __?__ Let’s see what this means…</button>
+        <button onclick="showTreeEquityScore()">i. Did you know the tree equity score of this area is __?__ Let’s see what this means…</button>
     </div>
 
     <div class="question-container">
         <p>2. Is there access in close proximity (15 minutes walking distance) to a grocery store?</p>
-        <label><input type="radio" name="groceryAccess" value="Don't know"> b. I don’t know</label>
+        <label><input type="radio" name="groceryAccess" value="Don't know" onclick="handleGroceryStoreResponse('Don\'t know')"> b. I don’t know</label>
         <label><input type="radio" name="groceryAccess" value="Yes" onclick="handleGroceryStoreResponse('Yes')"> c. Yes</label>
         <label><input type="radio" name="groceryAccess" value="No" onclick="handleGroceryStoreResponse('No')"> d. No</label>
+    </div>
+
+    <div class="question-container">
+        <p>3. Have you attended any community events to introduce the project and gather input?</p>
+        <label><input type="radio" name="communityEvents" value="Yes" onclick="handleCommunityEventsResponse('Yes')"> a. Yes</label>
+        <label><input type="radio" name="communityEvents" value="Not yet" onclick="handleCommunityEventsResponse('Not yet')"> b. Not yet</label>
+        <label><input type="radio" name="communityEvents" value="No" onclick="handleCommunityEventsResponse('No')"> c. We are not holding community events</label>
+    </div>
+
+    <div class="question-container">
+        <p>4. Do you know the demographics of the area around your project?</p>
+        <label><input type="radio" name="demographics" value="Yes" onclick="handleDemographicsResponse('Yes')"> a. Yes</label>
+        <label><input type="radio" name="demographics" value="Don't know" onclick="handleDemographicsResponse('Don\'t know')"> b. I don’t know</label>
+    </div>
+
+    <div class="question-container">
+        <p>5. Do you know what languages are spoken in this area?</p>
+        <label><input type="radio" name="languages" value="Yes" onclick="handleLanguagesResponse('Yes')"> a. Yes</label>
+        <label><input type="radio" name="languages" value="No" onclick="handleLanguagesResponse('No')"> b. No</label>
     </div>
 
 </body>
